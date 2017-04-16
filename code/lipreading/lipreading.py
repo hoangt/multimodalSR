@@ -200,7 +200,7 @@ def main():
         batch_size=batch_size,
         LR_start=LR_start, LR_decay=LR_decay,
         num_epochs=num_epochs,
-        X_train, y_train, X_val, y_val, X_test, y_test,
+        X_train=X_train, y_train=y_train, X_val=X_val, y_val=y_val, X_test=X_test, y_test=y_test,
         loadPerSpeaker=loadPerSpeaker,
         save_path=model_store_path,
         shuffleEnabled=True)
