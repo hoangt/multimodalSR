@@ -95,7 +95,7 @@ def main():
     if not os.path.exists(results_dir): os.makedirs(results_dir)
     if viseme: database_binaryDir = root_dir + 'database_binaryViseme'
     else:      database_binaryDir = root_dir + 'database_binary'
-    dataset = "volunteers";
+    dataset = "lipspeakers";
 
     if dataset == "lipspeakers":
         loadPerSpeaker = False  # only lipspeakers small enough to fit in CPU RAM, generate X_train etc here
