@@ -104,8 +104,8 @@ def train(train_fn, val_fn,
 
             if save_path is None:
                 save_path = "./bestModel"
-            if not os.path.exists(os.dirname(save_path)):
-                os.makedirs(os.dirname(save_path))
+            if not os.path.exists(os.path.dirname(save_path)):
+                os.makedirs(os.path.dirname(save_path))
             np.savez(save_path, *lasagne.layers.get_all_param_values(network_output_layer))
 
         epoch_duration = time.time() - start_time
