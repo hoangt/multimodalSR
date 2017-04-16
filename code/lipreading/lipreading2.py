@@ -20,6 +20,20 @@ theano.sandbox.cuda.use('gpu1')
 import theano
 import theano.tensor as T
 
+import logging
+import formatting
+
+logger_lip = logging.getLogger('lipreading')
+logger_lip.setLevel(logging.DEBUG)
+FORMAT = '[$BOLD%(filename)s$RESET:%(lineno)d][%(levelname)-5s]: %(message)s '
+formatter = logging.Formatter(formatting.formatter_message(FORMAT, False))
+
+# create console handler with a higher log level
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+ch.setFormatter(formatter)
+logger_lip.addHandler(ch)
+
 # from http://blog.christianperone.com/2015/08/convolutional-neural-networks-and-feature-extraction-with-python/
 # import matplotlib
 # import matplotlib.pyplot as plt
