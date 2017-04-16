@@ -52,7 +52,7 @@ import lasagne.objectives as LO
 def main():
     viseme = True  # will set nbClasses and store path   vis: 6.498.828   phn: 7.176.231
     # BN parameters
-    batch_size = 8
+    batch_size = 64
     logger_lip.info("batch_size = " + str(batch_size))
     # alpha is the exponential moving average factor
     alpha = .1
@@ -95,7 +95,7 @@ def main():
     if not os.path.exists(results_dir): os.makedirs(results_dir)
     if viseme: database_binaryDir = root_dir + 'database_binaryViseme'
     else:      database_binaryDir = root_dir + 'database_binary'
-    dataset = "lipspeakers";
+    dataset = "lipspeakers"
 
     if dataset == "lipspeakers":
         loadPerSpeaker = False  # only lipspeakers small enough to fit in CPU RAM, generate X_train etc here
