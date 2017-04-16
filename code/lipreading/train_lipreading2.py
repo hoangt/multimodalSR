@@ -10,16 +10,16 @@ import numpy as np
 # Given a dataset and a model, this function trains the model on the dataset for several epochs
 # (There is no default trainer function in Lasagne yet)
 def train(train_fn, val_fn,
-          model,
+          network_output_layer,
           batch_size,
           LR_start, LR_decay,
           num_epochs,
-          dataset,
+          X_train, y_train, X_val, y_val, X_test, y_test,
           save_path=None,
-          shuffle_parts=1):
+          shuffleEnabled=1):
 
-    X_train, y_train, X_val, y_val, X_test, y_test = dataset
-
+    # X_train, y_train, X_val, y_val, X_test, y_test = dataset
+    shuffle_parts = 1
     # A function which shuffles a dataset
     def shuffle(X, y):
 
@@ -106,7 +106,7 @@ def train(train_fn, val_fn,
                 save_path = "./bestModel"
             if not os.path.exists(os.dirname(save_path)):
                 os.makedirs(os.dirname(save_path))
-            np.savez(save_path, *lasagne.layers.get_all_param_values(model))
+            np.savez(save_path, *lasagne.layers.get_all_param_values(network_output_layer))
 
         epoch_duration = time.time() - start_time
 
